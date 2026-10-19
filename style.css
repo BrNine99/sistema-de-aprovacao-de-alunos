@@ -1,0 +1,348 @@
+
+/* ==========================================
+   SISTEMA DE APROVAÇÃO DE ALUNOS
+   ========================================== */
+
+/* 1. CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #2563eb;
+    --cor-primaria-hover: #1d4ed8;
+    --cor-fundo: #f1f5f9;
+    --cor-card: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-texto-secundario: #64748b;
+    --cor-borda: #cbd5e1;
+
+    --cor-aprovado: #16a34a;
+    --cor-recuperacao: #d97706;
+    --cor-reprovado: #dc2626;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. CABEÇALHO
+   ========================================== */
+
+header {
+    background: linear-gradient(
+        135deg,
+        #1e40af,
+        #2563eb
+    );
+
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #dbeafe;
+}
+
+/* ==========================================
+   3. CONTEÚDO PRINCIPAL
+   ========================================== */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* ==========================================
+   4. ESTILO DAS SEÇÕES
+   ========================================== */
+
+section {
+    background-color: var(--cor-card);
+    padding: 30px;
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #e2e8f0;
+}
+
+section h2 {
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* ==========================================
+   5. FORMULÁRIO
+   ========================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    margin-top: 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 13px 15px;
+
+    font-size: 1rem;
+    font-family: inherit;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    background-color: #f8fafc;
+    color: var(--cor-texto);
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao selecionar um campo */
+
+form input:focus {
+    border-color: var(--cor-primaria);
+    background-color: white;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Texto do placeholder */
+
+form input::placeholder {
+    color: #94a3b8;
+}
+
+/* ==========================================
+   6. BOTÃO CALCULAR
+   ========================================== */
+
+#calcular {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+
+    background-color: var(--cor-primaria);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+
+#calcular:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* Efeito ao clicar */
+
+#calcular:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Acessibilidade pelo teclado */
+
+#calcular:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   7. SEÇÃO DE RESULTADOS
+   ========================================== */
+
+#resultado {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#resultado h2 {
+    margin-bottom: 10px;
+}
+
+/* Parágrafos com informações do aluno */
+
+#resultado p {
+    background-color: #f8fafc;
+
+    padding: 16px 18px;
+
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--cor-primaria);
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: #334155;
+
+    overflow-wrap: anywhere;
+
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+
+#resultado p:hover {
+    background-color: #eff6ff;
+}
+
+/* Destaque para o nome do aluno */
+
+#nomeAluno {
+    font-weight: 700 !important;
+    color: #1e40af !important;
+}
+
+/* Destaque para a média */
+
+#media {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+/* Destaque para a situação */
+
+#situacao {
+    font-weight: 700 !important;
+    background-color: #eff6ff !important;
+    color: #1d4ed8 !important;
+}
+
+/* ==========================================
+   8. CORES DOS RESULTADOS
+   ========================================== */
+
+/* As classes abaixo podem ser aplicadas
+   dinamicamente pelo JavaScript. */
+
+#situacao.aprovado {
+    background-color: #dcfce7 !important;
+    color: var(--cor-aprovado) !important;
+    border-left-color: var(--cor-aprovado);
+}
+
+#situacao.recuperacao {
+    background-color: #fef3c7 !important;
+    color: var(--cor-recuperacao) !important;
+    border-left-color: var(--cor-recuperacao);
+}
+
+#situacao.reprovado {
+    background-color: #fee2e2 !important;
+    color: var(--cor-reprovado) !important;
+    border-left-color: var(--cor-reprovado);
+}
+
+/* ==========================================
+   9. RESPONSIVIDADE
+   ========================================== */
+
+/* Tablets */
+
+@media (max-width: 900px) {
+
+    main {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+/* Celulares */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    main {
+        width: 94%;
+        margin: 25px auto;
+        gap: 20px;
+    }
+
+    section {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    section h2 {
+        font-size: 1.15rem;
+    }
+
+    form input {
+        padding: 12px;
+    }
+
+    #calcular {
+        padding: 14px;
+    }
+
+    #resultado p {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+}
