@@ -1,5 +1,3 @@
-# sistema-de-aprovacao-de-alunos
-
 # 🎓 Sistema de Aprovação de Alunos
 
 ## 📌 Sobre o projeto
