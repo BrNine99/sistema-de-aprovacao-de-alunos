@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Aprovação</title>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Aprovação de Alunos</h1>
+        <p>Avalie o desempenho dos alunos por notas e frequência!</p>        
+    </header>
+
+    <main>
+        
+        <section id="dados-aluno">
+            <h2>Preencha as informações abaixo:</h2>
+            <form>
+                <label for="nome">Nome do Aluno:</label>
+                <input type="text" name="nome" id="nome" required>
+
+                <label for="nota1">Nota 1:</label>
+                <input type="number" name="nota1" id="nota1" min="0" max="10" step="any" required>
+
+                <label for="nota2">Nota 2:</label>
+                <input type="number" name="nota2" id="nota2" min="0" max="10" step="any" required>
+
+                <label for="nota3">Nota 3:</label>
+                <input type="number" name="nota3" id="nota3" min="0" max="10" step="any" required>
+
+                <label for="frequencia">Frequencia:</label>
+                <input type="number" name="frequencia" id="frequencia" min="0" max="100" placeholder="Frequencia em %" required>
+
+                <button type="button" id="calcular">Calcular</button>
+            </form>
+        </section>
+
+        <section id="resultado">
+            <h2>Resultado do aluno</h2>
+
+            <p id="nomeAluno">Nome:</p>
+            <p id="situacao">Situação:</p>
+            <p id="media">Média:</p>
+            <p id="maiorNota">Maior Nota:</p>
+            <p id="menorNota">Menor Nota:</p>
+        </section>
+
+    </main>
+    
+</body>
+</html>
