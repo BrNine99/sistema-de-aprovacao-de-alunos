@@ -45,3 +45,21 @@ const obterFrequencia = () => {
     parseFloat(obterElemento("frequencia").value.replace(",", "."));  
 }
 
+// Validar Valores
+
+const validarValores = (nota1, nota2, nota3, frequencia) => {
+
+    if( ((nota1 < 0) || (nota1 > 10)) || !Number.isFinite(nota1) ||
+        ((nota2 < 0) || (nota2 > 10)) || !Number.isFinite(nota2) ||
+        ((nota3 < 0) || (nota3 > 10)) || !Number.isFinite(nota3) ||
+        ((frequencia < 0) || (frequencia > 100)) || !Number.isFinite(frequencia)) {
+        
+        return false;
+
+    }
+
+    return true;
+}
+
+
+
